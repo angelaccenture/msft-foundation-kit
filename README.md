@@ -1,5 +1,3 @@
-Test Sync to child verion
-
 Additional Features:
 1. RTL Support
 2. Enhanced Advanced Tabs, New Advanced Carousel, New Adanced Accordion
