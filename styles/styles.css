@@ -162,17 +162,46 @@
   --color-text: light-dark(var(--color-dark), var(--color-light));
   --color-link: light-dark(var(--color-gray-900), var(--color-gray-100));
 
-  /* Microsoft brand palette */
-  --color-ms-blue: #0067b8;
-  --color-ms-blue-hover: #005da6;
-  --color-brand: var(--color-ms-blue);
-  --color-accent: var(--color-ms-blue);
+  /* ── Microsoft brand palette (FEDERATED — inherited by all child sites) ──
+     Primitive brand-blue scale. Child sites reference the SEMANTIC tokens
+     below, not these raw values, so brand changes propagate everywhere. */
+  --color-ms-blue-50: #eff6fc;
+  --color-ms-blue-100: #deecf9;
+  --color-ms-blue-200: #c7e0f4;
+  --color-ms-blue-300: #71afe5;
+  --color-ms-blue-400: #2b88d8;
+  --color-ms-blue-500: #0078d4;
+  --color-ms-blue-600: #0067b8;
+  --color-ms-blue-700: #005da6;
+  --color-ms-blue-800: #004578;
+  --color-ms-blue-900: #002d4d;
+
+  /* back-compat aliases */
+  --color-ms-blue: var(--color-ms-blue-600);
+  --color-ms-blue-hover: var(--color-ms-blue-700);
+
+  /* ── Semantic color roles (what child sites and blocks reference) ── */
+  --color-primary: var(--color-ms-blue-600);
+  --color-primary-hover: var(--color-ms-blue-700);
+  --color-cta: var(--color-ms-blue-600);
+  --color-cta-text: var(--color-light);
+  --color-focus: var(--color-ms-blue-500);
+  --color-border: var(--color-gray-200);
+  --color-muted: var(--color-gray-600);
+  --color-brand: var(--color-ms-blue-600);
+  --color-accent: var(--color-ms-blue-600);
   --color-background: light-dark(var(--color-light), var(--color-dark));
   --color-shaded: light-dark(#f2f2f2, #111);
 
   /* fonts — Segoe UI is Microsoft's brand font (system font on Windows;
      falls back gracefully elsewhere, so no webfont hosting needed) */
   --font-family: "Segoe UI", "Segoe UI Web (West European)", -apple-system, system-ui, "Helvetica Neue", sans-serif;
+  --font-family-heading: var(--font-family);
+
+  /* Segoe weight scale — semantic weight tokens for reuse */
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 
   /* headings */
   --heading-font-size-xxl: 32.44px;
