@@ -33,12 +33,18 @@ header {
   }
 
   .header-content {
+    /* Microsoft UHF look: thin white bar, Segoe font, MS-blue accents */
+    --header-height: 48px;
+
     display: grid;
     grid-template-areas:
       "brand"
       "nav"
       "actions";
     grid-template-rows: var(--header-height) auto 1fr;
+    font-family: var(--font-family);
+    border-bottom: 1px solid var(--color-gray-200);
+    background-color: #fff;
   }
 
   .action-wrapper {
@@ -380,4 +386,28 @@ header {
 [dir="rtl"] header nav .actions-section .action-wrapper {
   right: auto;
   left: -13px;
+}
+
+/* ── Microsoft UHF-style federated header layer ──────────────────────────
+   MS-blue interaction accents on the federated nav. (Bar styling lives in
+   the .header-content rule above; content comes from the shared nav fragment.) */
+header nav a {
+  color: var(--color-gray-900);
+  font-size: var(--body-font-size-s);
+}
+
+header nav a:hover {
+  color: var(--color-ms-blue);
+  text-decoration: none;
+  border-bottom: 2px solid var(--color-ms-blue);
+}
+
+header .action-wrapper button:hover .icon {
+  color: var(--color-ms-blue);
+}
+
+/* brand logo lockup sits at MS's compact 20px mark */
+header .brand img {
+  height: 20px;
+  width: auto;
 }

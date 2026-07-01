@@ -4,9 +4,18 @@ footer {
   }
 
   .footer-content {
+    /* Microsoft UHF footer look: light-gray bg, Segoe, muted links */
     max-width: var(--grid-container-width);
     margin: 48px auto;
     font-size: 14px;
+    font-family: var(--font-family);
+    background-color: var(--color-shaded);
+    color: var(--color-gray-700);
+
+    a:hover {
+      color: var(--color-ms-blue);
+      text-decoration: underline;
+    }
   }
 
   .section-legal ul {
@@ -54,4 +63,13 @@ footer {
       gap: var(--spacing-xl);
     }
   }
+}
+
+/* ── Microsoft UHF-style federated footer layer ──────────────────────────
+   Compact muted legal/copyright rows. (Bg + link styling live in the
+   .footer-content rule above; content comes from the shared nav fragment.) */
+footer .section-legal,
+footer .section-copyright {
+  color: var(--color-gray-600);
+  font-size: var(--body-font-size-xs);
 }
