@@ -161,3 +161,63 @@
 [dir="rtl"] .advanced-carousel .carousel-navigation-buttons {
   flex-direction: row-reverse;
 }
+
+/* ===========================================================================
+   VARIANT: advanced-carousel (hero)
+   Control chrome only — matches the microsoft.com homepage hero slideshow.
+   Controls span the full width: prev far-left, center group of LINE (dash)
+   indicators + a boxed play/pause, next far-right. (Does not affect the
+   content blocks inside the slides.)
+   =========================================================================== */
+.advanced-carousel.hero .carousel-navigation-buttons {
+  justify-content: space-between;
+  width: 100%;
+  gap: 0;
+}
+
+/* center the indicators + play/pause together, edges hold prev/next */
+.advanced-carousel.hero .carousel-slide-indicators {
+  margin-inline: auto;
+  gap: 12px;
+  align-items: center;
+}
+
+/* line/dash indicators instead of round dots */
+.advanced-carousel.hero .carousel-slide-indicator button {
+  width: 32px;
+  height: 3px;
+  border-radius: 0;
+  background-color: var(--color-gray-300, #b5b5b5);
+}
+
+.advanced-carousel.hero .carousel-slide-indicator button.is-active {
+  background-color: var(--color-primary, var(--color-text, #000));
+}
+
+/* boxed (square) play/pause sitting with the indicators */
+.advanced-carousel.hero .carousel-play-pause {
+  border-radius: 4px;
+  border-color: var(--color-border, var(--color-gray-300, #b5b5b5));
+}
+
+/* ===========================================================================
+   VARIANT: advanced-carousel (cards)
+   Control chrome only — matches the microsoft.com homepage story carousel.
+   Controls sit bottom-LEFT as a group: circular prev/next arrows clustered,
+   with play/pause pushed to the far right of the row.
+   =========================================================================== */
+.advanced-carousel.cards .carousel-navigation-buttons {
+  justify-content: flex-start;
+  width: 100%;
+  gap: 8px;
+}
+
+/* dots hidden in the cards style — arrows + play/pause only */
+.advanced-carousel.cards .carousel-slide-indicators {
+  display: none;
+}
+
+/* push play/pause to the far right, away from the arrow cluster */
+.advanced-carousel.cards .carousel-play-pause {
+  margin-inline-start: auto;
+}
