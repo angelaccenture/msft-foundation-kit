@@ -195,8 +195,9 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 600;
+  font-weight: var(--heading-font-weight);
   line-height: var(--heading-line-height);
+  letter-spacing: var(--heading-letter-spacing);
 }
 
 h1 { font-size: var(--heading-font-size-xxl); }
