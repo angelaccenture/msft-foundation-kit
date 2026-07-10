@@ -22,7 +22,6 @@
 
   &.light {
     --gradient-start: rgb(var(--color-light-base) / 80%);
-
     color: var(--color-dark);
   }
 
@@ -83,10 +82,7 @@
     min-height: var(--min-height);
     padding: var(--spacing-xxl) 0;
     box-sizing: border-box;
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+    position: relative; 
     background: linear-gradient(90deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
 
     p {
@@ -200,9 +196,6 @@
 @media (width >= 600px) {
   .hero {
     .hero-foreground {
-      display: grid;
-      grid-template-columns: 45% 45%;
-      justify-content: space-between;
       max-width: var(--grid-container-width);
       margin: 0 auto;
       background: unset;
