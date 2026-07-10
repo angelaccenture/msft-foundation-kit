@@ -11,7 +11,7 @@
   background-color: var(--banner-bg);
   color: var(--banner-color);
   text-align: center;
-  font-size: var(--body-font-size-s, 14px);
+  font-size: var(--body-font-size-m, 16px);
   line-height: 1.3;
 }
 
