@@ -5,7 +5,7 @@
   --min-height: var(--default-min-height);
 
   position: relative;
-  color: #fff;
+  color: var(--color-headings);
   overflow: hidden;
 
   &.small {

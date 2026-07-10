@@ -124,20 +124,7 @@
   --color-ms-blue: var(--color-ms-blue-600);
   --color-ms-blue-hover: var(--color-ms-blue-700);
 
-  /* ── Semantic color roles (what child sites and blocks reference) ── */
-  --color-primary: var(--color-ms-blue-600);
-  --color-primary-hover: var(--color-ms-blue-700);
-  --color-cta: var(--color-ms-blue-600);
-  --color-cta-text: var(--color-light);
-  --color-focus: var(--color-ms-blue-500);
-  --color-border: var(--color-gray-200);
-  --color-muted: var(--color-gray-600);
-  --color-brand: var(--color-ms-blue-600);
-  --color-accent: var(--color-ms-blue-600);
-  --color-background: light-dark(var(--color-light), var(--color-dark));
-  --color-shaded: light-dark(#f2f2f2, #111);
-
-  /* fonts — Segoe UI is Microsoft's brand font (system font on Windows;
+    /* fonts — Segoe UI is Microsoft's brand font (system font on Windows;
      falls back gracefully elsewhere, so no webfont hosting needed) */
   --font-family: "Segoe UI", "Segoe UI Web (West European)", -apple-system, system-ui, "Helvetica Neue", sans-serif;
   --font-family-heading: var(--font-family);
@@ -174,4 +161,19 @@
   /* misc */
   --header-height: 64px;
   --breadcrumb-height: 24px;
+  --color-titles: #0e1726;
+
+  /* ── Semantic color roles (what child sites and blocks reference) ── */
+  --color-primary: var(--color-ms-blue-600);
+  --color-primary-hover: var(--color-ms-blue-700);
+  --color-cta: var(--color-ms-blue-600);
+  --color-cta-text: var(--color-light);
+  --color-focus: var(--color-ms-blue-500);
+  --color-border: var(--color-gray-200);
+  --color-muted: var(--color-gray-600);
+  --color-brand: var(--color-ms-blue-600);
+  --color-accent: var(--color-ms-blue-600);
+  --color-background: light-dark(var(--color-light), var(--color-dark));
+  --color-shaded: light-dark(#f2f2f2, #111);
+  --color-headings: var(--color-titles);
 }
