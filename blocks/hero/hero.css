@@ -106,12 +106,55 @@
       margin-bottom: 0;
     }
 
+    /* Eyebrow — uppercase, letter-spaced, muted (Azure-style) */
     .hero-detail {
       margin: 0;
+      font-size: var(--body-font-size-s);
+      font-weight: var(--font-weight-semibold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-muted);
     }
 
     .hero-heading {
       margin: 0;
+      font-weight: var(--font-weight-medium);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    .fg-text p {
+      max-width: 34rem;
+    }
+
+    /* CTA pair: first link = filled pill, subsequent = outline (Azure-style) */
+    .fg-text a {
+      display: inline-block;
+      margin-top: var(--spacing-m);
+      margin-right: var(--spacing-s);
+      padding: var(--button-padding, 12px 28px);
+      border-radius: var(--button-radius, 4px);
+      font-weight: var(--font-weight-semibold);
+      text-decoration: none;
+      border: 2px solid var(--color-cta);
+      background-color: var(--color-cta);
+      color: var(--color-cta-text);
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .fg-text a:hover {
+      background-color: var(--color-primary-hover);
+      border-color: var(--color-primary-hover);
+    }
+
+    .fg-text a ~ a {
+      background-color: transparent;
+      color: var(--color-cta);
+    }
+
+    .fg-text a ~ a:hover {
+      background-color: var(--color-cta);
+      color: var(--color-cta-text);
     }
   }
 
@@ -124,12 +167,12 @@
     }
 
     .hero-foreground {
-      background: #111;
+      background: var(--color-gray-900);
     }
 
     &.light {
       .hero-foreground {
-        background: #f9f9f9;
+        background: var(--color-shaded);
       }
     }
 
