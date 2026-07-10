@@ -22,6 +22,7 @@
 
   &.light {
     --gradient-start: rgb(var(--color-light-base) / 80%);
+
     color: var(--color-dark);
   }
 
@@ -155,7 +156,19 @@
   }
 
   &.stack {
+    /* image becomes a fixed aspect-ratio banner on top (Teams-style),
+       text sits below. Ratio overridable per-site via --hero-image-ratio. */
     .hero-background {
+      position: relative;
+      aspect-ratio: var(--hero-image-ratio, 16 / 5);
+
+      picture,
+      img {
+        position: absolute;
+        inset: 0;
+        height: 100%;
+      }
+
       > div {
         min-height: var(--default-min-height);
         position: relative;
@@ -196,6 +209,11 @@
 @media (width >= 600px) {
   .hero {
     .hero-foreground {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-xxl);
+      align-items: center;
+      justify-content: space-between;
       max-width: var(--grid-container-width);
       margin: 0 auto;
       background: unset;
