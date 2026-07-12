@@ -193,6 +193,42 @@ a {
       color: var(--color-red-600);
     }
   }
+
+  /* Link-style button — looks like a text link, keeps button hit area */
+  &.btn-link {
+    padding-inline: 0;
+    border-color: transparent;
+    background: transparent;
+    color: var(--color-link);
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  /* Inverse — for placing buttons on dark backgrounds / hero overlays */
+  &.btn-inverse {
+    color: var(--color-text);
+    background-color: var(--color-background);
+    border: 2px solid var(--color-background);
+
+    &.btn-outline {
+      color: var(--color-background);
+      background: transparent;
+    }
+  }
+
+  /* Sizes */
+  &.btn-sm {
+    padding: var(--spacing-xs) var(--spacing-s);
+    font-size: var(--body-font-size-s);
+  }
+
+  &.btn-lg {
+    padding: var(--spacing-m) var(--spacing-l);
+    font-size: var(--body-font-size-l);
+  }
 }
 
 /* sections */
