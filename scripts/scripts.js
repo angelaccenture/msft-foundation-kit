@@ -1,4 +1,5 @@
 import { loadArea, setConfig, getConfig, getMetadata } from './ak.js';
+import { decorateAdvancedText } from '../blocks/advanced-text/advanced-text.js';
 
 const hostnames = ['authorkit.dev'];
 
@@ -33,6 +34,10 @@ const decorateArea = ({ area = document }) => {
   };
 
   eagerLoad(area, 'img');
+
+  // Run advanced-text inline styling — (class)…(/class) syntax — site-wide,
+  // on every area before load (default content + inside every block).
+  decorateAdvancedText(area);
 };
 // Load a template's JS module (ak.js already loads the template's CSS).
 // Runs as progressive enhancement after the area is decorated, so it never

@@ -141,6 +141,9 @@ function decoratePictures(el) {
   }
 }
 
+/* decorateButton disabled: buttons now use the advanced-text (btn-primary)…
+   (/btn-primary) syntax instead of the bold/italic/strike/underline convention.
+   Kept for reference in case the formatting-based convention is reinstated.
 function decorateButton(link) {
   const isEm = link.closest('em');
   const isStrong = link.closest('strong');
@@ -179,6 +182,7 @@ function decorateButton(link) {
   const toReplace = [isEm, isStrong, isStrike].find((el) => el?.parentNode === trueParent);
   if (toReplace) trueParent.replaceChild(link, toReplace);
 }
+*/
 
 export function localizeUrl({ config, url }) {
   const { locales, locale } = config;
@@ -229,7 +233,7 @@ export function decorateLink(config, a) {
       const localized = localizeUrl({ config, url });
       if (localized) a.href = localized.href;
     }
-    decorateButton(a);
+    // decorateButton(a); // disabled: buttons now use advanced-text (class) syntax, not bold/italic
     if (!dnb) {
       const href = a.getAttribute('href');
       const found = config.linkBlocks.some((pattern) => {
