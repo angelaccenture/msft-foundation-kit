@@ -56,6 +56,36 @@
     U+FFFD;
 }
 
+/* Base reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-cta-text);
+}
+
+/* Visible focus indicator for keyboard + mouse (MWF-style), token-driven.
+   Programmatic focus (tabindex="-1") is suppressed so skip-targets don't ring. */
+a[href]:focus,
+area[href]:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus,
+iframe:focus,
+[tabindex]:focus {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+[tabindex="-1"]:focus {
+  outline: 0 !important;
+}
+
 .light-scheme {
   color-scheme: light;
 }
@@ -101,14 +131,21 @@ header {
 
 a {
   color: var(--color-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+
+  &:hover {
+    text-decoration: none;
+  }
 
   &.btn {
     display: inline-block;
     line-height: 1;
-    font-weight: 500;
+    font-weight: var(--font-weight-semibold);
     text-decoration: none;
     border: 2px solid;
-    padding: 8px 12px;
+    border-radius: var(--button-radius, 4px);
+    padding: var(--button-padding, 8px 12px);
     box-sizing: border-box;
 
     &.btn-outline {
@@ -117,7 +154,7 @@ a {
   }
 
   &.btn-accent {
-    color: #fff;
+    color: var(--color-cta-text);
     background: var(--color-accent);
     border: 2px solid var(--color-accent);
 
@@ -148,13 +185,49 @@ a {
   }
 
   &.btn-negative {
-    color: #fff;
+    color: var(--color-cta-text);
     background-color: var(--color-red-600);
     border: 2px solid var(--color-red-600);
 
     &.btn-outline {
       color: var(--color-red-600);
     }
+  }
+
+  /* Link-style button — looks like a text link, keeps button hit area */
+  &.btn-link {
+    padding-inline: 0;
+    border-color: transparent;
+    background: transparent;
+    color: var(--color-link);
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  /* Inverse — for placing buttons on dark backgrounds / hero overlays */
+  &.btn-inverse {
+    color: var(--color-text);
+    background-color: var(--color-background);
+    border: 2px solid var(--color-background);
+
+    &.btn-outline {
+      color: var(--color-background);
+      background: transparent;
+    }
+  }
+
+  /* Sizes */
+  &.btn-sm {
+    padding: var(--spacing-xs) var(--spacing-s);
+    font-size: var(--body-font-size-s);
+  }
+
+  &.btn-lg {
+    padding: var(--spacing-m) var(--spacing-l);
+    font-size: var(--body-font-size-l);
   }
 }
 
@@ -189,16 +262,135 @@ li {
   margin-block: 1em;
 }
 
+/* Default content typography */
+p {
+  margin-block: 0 var(--spacing-m);
+  font-size: var(--body-font-size-m);
+  line-height: var(--body-line-height);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+small {
+  font-size: var(--body-font-size-s);
+  color: var(--color-muted);
+}
+
+blockquote {
+  margin: var(--spacing-l) 0;
+  padding-inline-start: var(--spacing-l);
+  border-inline-start: 4px solid var(--color-border);
+  color: var(--color-muted);
+  font-style: italic;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--color-border);
+  margin: var(--spacing-xl) 0;
+}
+
+code {
+  font-family: sfmono-regular, consolas, "Liberation Mono", menlo, monospace;
+  font-size: 0.9em;
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  background-color: var(--color-shaded);
+}
+
+figure {
+  margin: var(--spacing-l) 0;
+}
+
+figcaption {
+  margin-top: var(--spacing-s);
+  font-size: var(--body-font-size-s);
+  color: var(--color-muted);
+}
+
+dl {
+  margin-block: 0 var(--spacing-m);
+}
+
+dt {
+  font-weight: var(--font-weight-semibold);
+}
+
+dd {
+  margin: 0 0 var(--spacing-s);
+}
+
+sub,
+sup {
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+mark {
+  background-color: var(--color-yellow-100);
+  color: var(--color-dark);
+}
+
+abbr[title] {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+pre {
+  margin-block: 0 var(--spacing-m);
+  padding: var(--spacing-m);
+  overflow: auto;
+  border-radius: 4px;
+  background-color: var(--color-shaded);
+  font-family: sfmono-regular, consolas, "Liberation Mono", menlo, monospace;
+  font-size: var(--body-font-size-s);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-block: var(--spacing-l);
+  font-size: var(--body-font-size-m);
+}
+
+th,
+td {
+  padding: var(--spacing-s) var(--spacing-m);
+  text-align: start;
+  border-bottom: 1px solid var(--color-border);
+}
+
+th {
+  font-weight: var(--font-weight-semibold);
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  color:  var(--color-titles);
+  margin-block: var(--spacing-l) var(--spacing-m);
+  color: var(--color-titles);
   font-weight: var(--heading-font-weight);
   line-height: var(--heading-line-height);
   letter-spacing: var(--heading-letter-spacing);
+}
+
+:where(h1, h2, h3, h4, h5, h6):first-child {
+  margin-top: 0;
 }
 
 h1 { font-size: var(--heading-font-size-xxl); }
