@@ -62,9 +62,13 @@ function decorateAnchor(a) {
   }
 }
 
-export default function init(el) {
+export function decorateAdvancedText(el) {
   // Anchors first, so their tags are stripped before the text pass runs
   // (prevents the text pass from wrapping link labels in a stray span).
   el.querySelectorAll('a').forEach(decorateAnchor);
   el.querySelectorAll('h1, h2, h3, h4, h5, h6, p, li').forEach(decorateTextNode);
+}
+
+export default function init(el) {
+  decorateAdvancedText(el);
 }
