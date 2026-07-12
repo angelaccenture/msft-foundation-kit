@@ -119,9 +119,9 @@
   --color-ms-blue-700: #005da6;
   --color-ms-blue-800: #004578;
   --color-ms-blue-900: #002d4d;
-  --color-ms-blue-accent: #3aa0fa;   /* lighter interactive blue */
---color-ms-cyan: #50e6ff;          /* bright cyan accent */
---color-ms-navy: #243a5e;          /* dark brand navy */
+  --color-ms-blue-accent: #3aa0fa; /* lighter interactive blue */
+  --color-ms-cyan: #50e6ff; /* bright cyan accent */
+  --color-ms-navy: #243a5e; /* dark brand navy */
 
   /* back-compat aliases */
   --color-ms-blue: var(--color-ms-blue-600);
@@ -160,6 +160,10 @@
   --body-font-size-xs: 0.75rem;       /* 12px */
   --body-line-height: 1.5;
   --body-letter-spacing: -0.03em;
+
+  /* buttons */
+  --button-radius: 4px;
+  --button-padding: 8px 12px;
 
   /* misc */
   --header-height: 64px;
