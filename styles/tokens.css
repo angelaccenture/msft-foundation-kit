@@ -161,6 +161,10 @@
   --body-line-height: 1.5;
   --body-letter-spacing: -0.03em;
 
+  /* buttons */
+  --button-radius: 4px;
+  --button-padding: 8px 12px;
+
   /* misc */
   --header-height: 64px;
   --breadcrumb-height: 24px;
