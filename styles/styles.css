@@ -111,10 +111,11 @@ a {
   &.btn {
     display: inline-block;
     line-height: 1;
-    font-weight: 500;
+    font-weight: var(--font-weight-semibold);
     text-decoration: none;
     border: 2px solid;
-    padding: 8px 12px;
+    border-radius: var(--button-radius, 4px);
+    padding: var(--button-padding, 8px 12px);
     box-sizing: border-box;
 
     &.btn-outline {
@@ -123,7 +124,7 @@ a {
   }
 
   &.btn-accent {
-    color: #fff;
+    color: var(--color-cta-text);
     background: var(--color-accent);
     border: 2px solid var(--color-accent);
 
@@ -154,7 +155,7 @@ a {
   }
 
   &.btn-negative {
-    color: #fff;
+    color: var(--color-cta-text);
     background-color: var(--color-red-600);
     border: 2px solid var(--color-red-600);
 
