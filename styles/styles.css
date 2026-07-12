@@ -156,12 +156,17 @@ a {
   }
 
   &.btn-primary {
-    color: var(--color-background);
-    background-color: var(--color-text);
-    border: 2px solid var(--color-text);
+    color: var(--color-cta-text);
+    background-color: var(--color-button-primary);
+    border: 2px solid var(--color-button-primary);
+
+    &:hover {
+      background-color: var(--color-button-primary-hover);
+      border-color: var(--color-button-primary-hover);
+    }
 
     &.btn-outline {
-      color: var(--color-text);
+      color: var(--color-button-primary);
       background: transparent;
     }
   }

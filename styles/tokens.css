@@ -122,6 +122,7 @@
   --color-ms-blue-accent: #3aa0fa; /* lighter interactive blue */
   --color-ms-cyan: #50e6ff; /* bright cyan accent */
   --color-ms-navy: #243a5e; /* dark brand navy */
+  --color-ms-navy-deep: #091f2c; /* deep navy — microsoft.com primary button fill */
 
   /* back-compat aliases */
   --color-ms-blue: var(--color-ms-blue-600);
@@ -161,9 +162,9 @@
   --body-line-height: 1.5;
   --body-letter-spacing: -0.03em;
 
-  /* buttons */
-  --button-radius: 4px;
-  --button-padding: 8px 12px;
+  /* buttons — sized to match microsoft.com (8px radius, chunkier padding) */
+  --button-radius: 8px;
+  --button-padding: 12px 24px;
 
   /* misc */
   --header-height: 64px;
@@ -175,6 +176,8 @@
   --color-primary-hover: var(--color-ms-blue-700);
   --color-cta: var(--color-ms-blue-600);
   --color-cta-text: var(--color-light);
+  --color-button-primary: var(--color-ms-navy-deep); /* filled primary button (microsoft.com) */
+  --color-button-primary-hover: #071824;
   --color-focus: var(--color-ms-blue-500);
   --color-border: var(--color-gray-200);
   --color-muted: var(--color-gray-600);
