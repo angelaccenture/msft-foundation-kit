@@ -116,7 +116,7 @@
     .hero-heading {
       margin: 0;
       font-weight: var(--font-weight-medium);
-      line-height: 1.2;
+      line-height: 56px;
       letter-spacing: -0.02em;
     }
 
@@ -124,35 +124,6 @@
       max-width: 34rem;
     }
 
-    /* CTA pair: first link = filled pill, subsequent = outline (Azure-style)
-    .fg-text a {
-      display: inline-block;
-      margin-top: var(--spacing-m);
-      margin-right: var(--spacing-s);
-      padding: var(--button-padding, 12px 28px);
-      border-radius: var(--button-radius, 4px);
-      font-weight: var(--font-weight-semibold);
-      text-decoration: none;
-      border: 2px solid var(--color-cta);
-      background-color: var(--color-cta);
-      color: var(--color-cta-text);
-      transition: background-color 0.2s ease, color 0.2s ease;
-    }
-
-    .fg-text a:hover {
-      background-color: var(--color-primary-hover);
-      border-color: var(--color-primary-hover);
-    }
-
-    .fg-text a ~ a {
-      background-color: transparent;
-      color: var(--color-cta);
-    }
-
-    .fg-text a ~ a:hover {
-      background-color: var(--color-cta);
-      color: var(--color-cta-text);
-    }*/
   }
 
   &.stack {
