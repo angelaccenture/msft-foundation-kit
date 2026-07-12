@@ -86,14 +86,6 @@ iframe:focus,
   outline: 0 !important;
 }
 
-.light-scheme {
-  color-scheme: light;
-}
-
-.dark-scheme {
-  color-scheme: dark;
-}
-
 html {
   scroll-padding-top: calc(var(--header-height) + 1rem);
 }

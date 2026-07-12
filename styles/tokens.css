@@ -180,7 +180,6 @@
   --color-muted: var(--color-gray-600);
   --color-brand: var(--color-ms-blue-600);
   --color-accent: var(--color-ms-blue-600);
-  --color-background: light-dark(var(--color-light), var(--color-dark));
-  --color-shaded: light-dark(#f2f2f2, #111);
+  --color-background: #fffdfb;
   --color-headings: var(--color-titles);
 }
