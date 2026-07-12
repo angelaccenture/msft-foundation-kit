@@ -119,6 +119,9 @@
   --color-ms-blue-700: #005da6;
   --color-ms-blue-800: #004578;
   --color-ms-blue-900: #002d4d;
+  --color-ms-blue-accent: #3aa0fa;   /* lighter interactive blue */
+--color-ms-cyan: #50e6ff;          /* bright cyan accent */
+--color-ms-navy: #243a5e;          /* dark brand navy */
 
   /* back-compat aliases */
   --color-ms-blue: var(--color-ms-blue-600);
