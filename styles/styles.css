@@ -56,6 +56,36 @@
     U+FFFD;
 }
 
+/* Base reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-cta-text);
+}
+
+/* Visible focus indicator for keyboard + mouse (MWF-style), token-driven.
+   Programmatic focus (tabindex="-1") is suppressed so skip-targets don't ring. */
+a[href]:focus,
+area[href]:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus,
+iframe:focus,
+[tabindex]:focus {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+[tabindex="-1"]:focus {
+  outline: 0 !important;
+}
+
 .light-scheme {
   color-scheme: light;
 }
@@ -232,6 +262,24 @@ code {
   padding: 0.1em 0.3em;
   border-radius: 3px;
   background-color: var(--color-shaded);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-block: var(--spacing-l);
+  font-size: var(--body-font-size-m);
+}
+
+th,
+td {
+  padding: var(--spacing-s) var(--spacing-m);
+  text-align: start;
+  border-bottom: 1px solid var(--color-border);
+}
+
+th {
+  font-weight: var(--font-weight-semibold);
 }
 
 h1,
