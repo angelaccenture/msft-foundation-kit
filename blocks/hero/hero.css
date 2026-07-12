@@ -124,7 +124,7 @@
       max-width: 34rem;
     }
 
-    /* CTA pair: first link = filled pill, subsequent = outline (Azure-style) */
+    /* CTA pair: first link = filled pill, subsequent = outline (Azure-style)
     .fg-text a {
       display: inline-block;
       margin-top: var(--spacing-m);
@@ -152,12 +152,10 @@
     .fg-text a ~ a:hover {
       background-color: var(--color-cta);
       color: var(--color-cta-text);
-    }
+    }*/
   }
 
   &.stack {
-    /* image becomes a fixed aspect-ratio banner on top (Teams-style),
-       text sits below. Ratio overridable per-site via --hero-image-ratio. */
     .hero-background {
       position: relative;
       aspect-ratio: var(--hero-image-ratio, 16 / 5);
