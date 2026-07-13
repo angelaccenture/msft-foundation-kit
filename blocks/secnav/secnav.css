@@ -8,13 +8,12 @@
   justify-content: space-between;
   gap: var(--spacing-l, 24px);
   min-height: 56px;
-  padding: 0 var(--spacing-xl, 32px);
   max-width: var(--grid-container-width);
   margin: 0 auto;
 
 }
 .block-content:has(.secnav) {
-    background-color: light-dark(#fefefe, var(--color-gray-900));
+  background-color: light-dark(#fefefe, var(--color-gray-900));
   box-shadow: 0 0 2px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 14%);
 }
 .secnav .secnav-links ul {
