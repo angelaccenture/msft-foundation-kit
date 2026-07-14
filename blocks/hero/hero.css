@@ -147,7 +147,6 @@
       align-items: center;
       padding-top: var(--spacing-l);
       max-width: fit-content;
-      margin: 0 auto;
 
       /* neutralize the authored line break so CTAs sit side by side */
       br {
