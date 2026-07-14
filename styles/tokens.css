@@ -185,4 +185,5 @@
   --color-accent: var(--color-ms-blue-600);
   --color-background: #fffdfb;
   --color-headings: var(--color-titles);
+  --link-color: var(--color-ms-blue-600, #0067b8);
 }

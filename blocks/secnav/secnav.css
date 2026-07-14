@@ -31,7 +31,7 @@
 }
 
 .secnav .secnav-links a {
-  color: var(--color-ms-blue-600, #0067b8);
+  color: var(--link-color);
   font-size: var(--body-font-size-m, 16px);
   font-weight: var(--font-weight-regular, 400);
   text-decoration: none;
