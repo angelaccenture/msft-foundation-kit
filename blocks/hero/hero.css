@@ -106,7 +106,7 @@
     .fg-text {
       width: var(--grid-container-width);
       margin: 0 auto;
-      padding-top: 10%;
+      padding-top: 5%;
     }
 
     div > *:first-child {
