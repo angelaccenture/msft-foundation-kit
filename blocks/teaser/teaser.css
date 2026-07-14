@@ -1,12 +1,20 @@
 .teaser {
+  /* Teaser tokens — teaser-scoped, falling back to global semantic tokens so
+     child sites can override radius, shadow, and colors. */
+  --teaser-radius: var(--card-border-radius, 16px);
+  --teaser-shadow: var(--card-shadow, 0 0 2px 0 rgb(0 0 0 / 12%), 0 2px 4px 0 rgb(0 0 0 / 14%));
+  --teaser-shadow-hover: 0 2px 8px 0 rgb(0 0 0 / 16%), 0 8px 20px 0 rgb(0 0 0 / 12%);
+  --teaser-bg: var(--color-background-card, var(--color-background));
+  --teaser-cta-color: var(--color-link, var(--color-primary));
   --spacing-default: var(--spacing-l);
 
   overflow-wrap: break-word;
-  box-shadow: 0 1px 6px 0 rgb(0 0 0 / 12%);
+  border-radius: var(--teaser-radius);
+  box-shadow: var(--teaser-shadow);
   overflow: hidden;
-  background-color: light-dark(var(--color-gray-100), var(--color-gray-900));
+  background-color: var(--teaser-bg);
   color: light-dark(var(--color-dark), var(--color-light));
-  transition: all 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
 
   .teaser-inner {
     display: grid;
@@ -15,15 +23,13 @@
   }
 
   &:not(.quiet) {
-    .card-picture-container {
+    .teaser-picture-container {
       position: relative;
       padding-bottom: 60%;
 
       picture {
         position: absolute;
         inset: 0;
-        opacity: 0.85;
-        transition: opacity 0.25s ease-in-out;
       }
 
       img {
@@ -36,14 +42,24 @@
 
   .teaser-content-container {
     padding: var(--spacing-default);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     :first-child {
       margin-top: 0;
-      font-size: 16px;
     }
 
     :last-child {
       margin-bottom: 0;
+    }
+
+    h2,
+    h3,
+    h4 {
+      font-size: var(--heading-font-size-l);
+      font-weight: var(--font-weight-medium);
+      color: var(--color-headings);
     }
 
     &:has(+ .teaser-cta-container) {
@@ -51,36 +67,54 @@
     }
   }
 
+  /* CTA — Microsoft style: underlined text link, semibold, brand color */
   .teaser-cta-container {
     padding: 0 var(--spacing-default) var(--spacing-default) var(--spacing-default);
     margin: 0;
     display: flex;
-    justify-content: end;
+    justify-content: start;
+
+    a {
+      color: var(--teaser-cta-color);
+      font-weight: var(--font-weight-semibold);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
 
   &:not(.quiet):hover {
-    transform: scale(1.005);
-    box-shadow: 0 2px 8px 0 rgb(0 0 0 / 16%);
-
-    picture {
-      opacity: 1;
-    }
+    transform: translateY(-2px);
+    box-shadow: var(--teaser-shadow-hover);
   }
 
   /* Variations */
   &.center {
     text-align: center;
+
+    .teaser-cta-container {
+      justify-content: center;
+    }
   }
 
   &.quiet {
     --spacing-default: 0;
 
+    border-radius: 0;
     box-shadow: initial;
     background-color: initial;
 
-    .card-content-container * {
+    .teaser-content-container * {
       margin: 6px;
     }
   }
 }
 
+@media (width < 600px) {
+  .teaser .teaser-inner {
+    grid-template-columns: 1fr;
+  }
+}
