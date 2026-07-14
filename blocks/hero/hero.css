@@ -4,6 +4,19 @@
   --default-min-height: 360px;
   --min-height: var(--default-min-height);
 
+  /* Button tokens — hero-scoped, falling back to global semantic tokens.
+     Child sites override either these hero vars or the global tokens. */
+  --hero-btn-primary-bg: var(--color-button-primary);
+  --hero-btn-primary-text: var(--color-cta-text);
+  --hero-btn-primary-bg-hover: var(--color-button-primary-hover);
+  --hero-btn-secondary-bg: transparent;
+  --hero-btn-secondary-text: var(--color-headings);
+  --hero-btn-secondary-border: var(--color-border);
+  --hero-btn-secondary-bg-hover: var(--color-gray-100);
+  --hero-btn-radius: var(--button-radius);
+  --hero-btn-padding: var(--button-padding);
+  --hero-btn-gap: var(--spacing-m);
+
   position: relative;
   color: var(--color-headings);
   overflow: hidden;
@@ -124,6 +137,60 @@
       max-width: 34rem;
     }
 
+    /* CTA row — the paragraph holding the hero links.
+       Authored as: <p><strong><a>Primary</a></strong><br><a>Secondary</a></p> */
+    .fg-text p:has(a) {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--hero-btn-gap);
+      align-items: center;
+      margin-top: var(--spacing-l);
+
+      /* neutralize the authored line break so CTAs sit side by side */
+      br {
+        display: none;
+      }
+
+      a {
+        display: inline-block;
+        padding: var(--hero-btn-padding);
+        border-radius: var(--hero-btn-radius);
+        font-size: var(--button-font-size, var(--body-font-size-s));
+        font-weight: var(--font-weight-semibold);
+        line-height: 1;
+        text-align: center;
+        text-decoration: none;
+        border: 1px solid transparent;
+        transition: background-color var(--transition-base), color var(--transition-base);
+      }
+
+      /* Secondary (bare link) */
+      > a {
+        background: var(--hero-btn-secondary-bg);
+        color: var(--hero-btn-secondary-text);
+        border-color: var(--hero-btn-secondary-border);
+
+        &:hover {
+          background: var(--hero-btn-secondary-bg-hover);
+        }
+      }
+
+      /* Primary (link wrapped in <strong>) */
+      strong {
+        font-weight: inherit;
+
+        a {
+          background: var(--hero-btn-primary-bg);
+          color: var(--hero-btn-primary-text);
+          border-color: var(--hero-btn-primary-bg);
+
+          &:hover {
+            background: var(--hero-btn-primary-bg-hover);
+            border-color: var(--hero-btn-primary-bg-hover);
+          }
+        }
+      }
+    }
   }
 
   &.stack {
