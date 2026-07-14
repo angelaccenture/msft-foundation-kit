@@ -1,0 +1,129 @@
+/* ===========================================================================
+   msft-accordion
+   Microsoft-style product accordion (matches "Boost your productivity with
+   Copilot" on microsoft.com/en-us/microsoft-365): single-open collapsible
+   items on the left; the open item's image + copy shown to the right.
+
+   Token-driven — child sites override via these block-scoped vars, which fall
+   back to global semantic tokens.
+   =========================================================================== */
+.msft-accordion {
+  --msft-accordion-active: var(--color-cta, var(--color-primary));
+  --msft-accordion-divider: var(--color-border);
+  --msft-accordion-title-size: var(--body-font-size-l);
+  --msft-accordion-image-radius: var(--card-border-radius, 12px);
+  --msft-accordion-image-ratio: 16 / 10;
+  --msft-accordion-gap: var(--spacing-xl);
+}
+
+.msft-accordion-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.msft-accordion details {
+  border-bottom: 1px solid var(--msft-accordion-divider);
+}
+
+.msft-accordion summary {
+  padding: var(--spacing-l) 0;
+  padding-inline-start: var(--spacing-m);
+  border-inline-start: 3px solid transparent;
+  font-size: var(--msft-accordion-title-size);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.3;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition:
+    color var(--transition-base),
+    border-color var(--transition-base),
+    font-weight var(--transition-base);
+}
+
+.msft-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Chevron */
+.msft-accordion summary::after {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentcolor;
+  border-bottom: 2px solid currentcolor;
+  transform: rotate(45deg);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+  margin-inline-start: var(--spacing-m);
+}
+
+.msft-accordion details[open] summary::after {
+  transform: rotate(-135deg);
+}
+
+.msft-accordion details[open] summary {
+  border-inline-start-color: var(--msft-accordion-active);
+  color: var(--msft-accordion-active);
+  font-weight: var(--font-weight-bold);
+}
+
+.msft-accordion-item-body {
+  padding: 0 0 var(--spacing-l) var(--spacing-m);
+}
+
+.msft-accordion-item-body > *:first-child {
+  margin-top: 0;
+}
+
+.msft-accordion-item-body > *:last-child {
+  margin-bottom: 0;
+}
+
+.msft-accordion-item-body p:has(picture) {
+  margin: 0 0 var(--spacing-m);
+}
+
+.msft-accordion-item-body picture,
+.msft-accordion-item-body img {
+  display: block;
+  width: 100%;
+  border-radius: var(--msft-accordion-image-radius);
+}
+
+@media (width >= 900px) {
+  /* When an item is open, lay its body out as two columns: the copy on the
+     left (under its title), the image on the right — mirroring the source's
+     side-by-side product accordion. Collapsed items stay as title-only rows,
+     so only the open item reveals its image beside the copy. */
+  .msft-accordion details[open] .msft-accordion-item-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--msft-accordion-gap);
+    align-items: start;
+    padding-block: var(--spacing-s) var(--spacing-l);
+  }
+
+  /* Image column (right); copy column (left), regardless of source order. */
+  .msft-accordion details[open] .msft-accordion-item-body p:has(picture) {
+    grid-column: 2;
+    grid-row: 1 / 999;
+    margin: 0;
+  }
+
+  .msft-accordion details[open] .msft-accordion-item-body p:has(picture) picture {
+    aspect-ratio: var(--msft-accordion-image-ratio);
+  }
+
+  .msft-accordion details[open] .msft-accordion-item-body p:has(picture) img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .msft-accordion details[open] .msft-accordion-item-body > :not(p:has(picture)) {
+    grid-column: 1;
+  }
+}
